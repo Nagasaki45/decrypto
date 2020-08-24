@@ -107,33 +107,14 @@
         </div>
       </div>
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            <div class="float-left">
-            <div class="dropdown">              
-              <button class="btn btn-primary btn-lg dropdown-toggle my-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Code
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#codeModal" id="revealCodeButton" style:"display:none">Reveal code</a>
-                <a class="dropdown-item" href="#" onclick="generateCode()">Generate new code</a>
-              </div>
-            </div>
-          </div>
-        </div>
-          <div class="col-6">
-            <div class="float-right">
-              <button class="btn btn-primary btn-lg my-3" type="button" id="fullScreenButton" onclick="toggleFullScreen()">
-                <i class="fas fa-expand-arrows-alt" id="enableFullScreen"></i>
-                <i class="fas fa-compress" style="display:none" id="disableFullScreen"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="float-left">
+            <button class="btn btn-primary btn-lgmy-3" type="button" onclick="generateCode()">
+            Code
+            </button>
         </div>
       </div>
 
-<!-- Modal -->
+<!-- New Game Modal -->
 <div class="modal fade" id="newGameModal" tabindex="-1" role="dialog" aria-labelledby="newGameModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -147,34 +128,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="newGameModalCancelButton">Cancel</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="startNewGame()">Start New Game</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="newTeam()">Start New Game</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="disableScreenLockModal" tabindex="-1" role="dialog" aria-labelledby="disableScreenLockModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="disableScreenLockModalLabel">Disable Screen Lock?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        </button>
-      </div>
-      <div class="modal-body">
-        Do you want to keep the screen on while the game is in progress?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="newGameModalCancelButton">No</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="disableScreenLock()">Yes (recommended)</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="codeModalCenterTitle" aria-hidden="true">
+<!-- Code Modal -->
+<div class="modal" id="codeModal" tabindex="-1" role="dialog" aria-labelledby="codeModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -191,9 +152,9 @@
                 <div class="body">
                   <div class="codebody bg-info" id="code0">
                   </div>
-                </div>                
+                </div>
               </div>
-            </div>            
+            </div>
             <div class="col-4">
               <div class="card">
                 <div class="body">
