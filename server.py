@@ -15,18 +15,15 @@ with open('wordlist.txt') as f:
 
 @app.route('/')
 def index():
-    return flask.render_template('index.html')
-
-
-@app.route('/new-team')
-def new_team():
     team = ''.join(random.sample(string.ascii_uppercase + string.digits, 6))
     words = random.sample(wordlist, 4)
     teams[team] = words
-    return {'team': team, 'words': words}
+    return flask.redirect(flask.url_for('team', team=team))
 
 
-@app.route('/get-team')
-def get_team():
-    team = flask.request.args.get("team")
-    return {'words': teams[team]}
+@app.route('/<team>')
+def team(team):
+    words = teams.get(team)
+    if words:
+        return flask.render_template('index.html', words=words)
+    return flask.render_template('404.html'), 404

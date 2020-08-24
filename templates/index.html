@@ -26,62 +26,22 @@
         </div>
         <div class="container-fluid my-5">
             <div class="row">
-                <div class="col-sm-3">
-                    <div class="card">
-                        <div class="card-header bg-primary">
-                            <div class="cluenumber">
-                            1
+                {% for word in words %}
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <div class="cluenumber">
+                                    {{ loop.index }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="body">
-                            <div class="cluebody" id="word0">
-                            ?
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card">
-                        <div class="card-header bg-primary">
-                            <div class="cluenumber">
-                            2
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div class="cluebody" id="word1">
-                            ?
+                            <div class="body">
+                                <div class="cluebody" id="word0">
+                                    {{ word }}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card">
-                        <div class="card-header bg-primary">
-                            <div class="cluenumber">
-                            3
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div class="cluebody" id="word2">
-                            ?
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card">
-                        <div class="card-header bg-primary">
-                            <div class="cluenumber">
-                            4
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div class="cluebody" id="word3">
-                            ?
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class="container-fluid">
@@ -106,7 +66,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="newGameModalCancelButton">Cancel</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="newTeam()">Start New Game</button>
+            <a class="btn btn-primary" href="/">Start New Game</a>
         </div>
         </div>
     </div>
@@ -125,30 +85,16 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-4">
-                                <div class="card">
-                                    <div class="body">
-                                    <div class="codebody bg-info" id="code0">
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                    <div class="body">
-                                    <div class="codebody bg-info" id="code1">
-                                    </div>
+                            {% for i in range(3) %}
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="body">
+                                        <div class="codebody bg-info" id="code{{ i }}">
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card">
-                                    <div class="body">
-                                    <div class="codebody bg-info" id="code2">
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
