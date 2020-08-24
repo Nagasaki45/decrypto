@@ -1,6 +1,6 @@
 function generateCode() {
-	var code = _.sample([1,2,3,4], 3);
-	setCode(code);
+    var code = _.sample([1,2,3,4], 3);
+    setCode(code);
 }
 
 function setCode(code) {
@@ -20,13 +20,12 @@ function newTeam() {
     var newTeamData;
     $.ajax({
         url: "new-team",
+        async: false,
         success: function(data) {
             newTeamData = data;
-        },
-        async: false
+        }
     });
-    var words = newTeamData["words"];
-    setWords(words);
+    setWords(newTeamData["words"]);
     window.location.hash = newTeamData["team"];
 }
 
@@ -35,11 +34,10 @@ function openTeam(team) {
     $.ajax({
         url: "get-team",
         data: {team: team},
+        async: false,
         success: function(data) {
             words = data["words"];
-            console.log(data);
-        },
-        async: false
+        }
     });
     setWords(words);
 }
@@ -53,3 +51,7 @@ function initialize() {
         newTeam();
     }
 }
+
+$(document).ready(function() {
+    initialize();
+});
