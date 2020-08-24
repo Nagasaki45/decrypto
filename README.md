@@ -1,6 +1,6 @@
 # Decrypto
 
-https://whoawhoa.github.io/decrypto/
+https://play-decrypto.herokuapp.com/
 
 ## Decrypto - How To Play
 
