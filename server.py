@@ -11,6 +11,7 @@ import flask
 import redis
 
 DEFAULT_REDIS_URL = 'redis://localhost:6379/0'
+EXPIRE = 60 * 60 * 24 * 30  # 30 days
 
 app = flask.Flask(__name__)
 r = redis.from_url(os.environ.get('REDIS_URL', DEFAULT_REDIS_URL))
@@ -22,7 +23,7 @@ with open('wordlist.txt') as f:
 def index():
     team = ''.join(random.sample(string.ascii_uppercase + string.digits, 6))
     words = random.sample(wordlist, 4)
-    r.set(team, json.dumps(words))
+    r.set(team, json.dumps(words), ex=EXPIRE)
     return flask.redirect(flask.url_for('team', team=team))
 
 
