@@ -54,7 +54,7 @@
 
     <!-- New Game Modal -->
     <div class="modal fade" id="newGameModal" tabindex="-1" role="dialog" aria-labelledby="newGameModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <form class="modal-dialog" role="document" action="/" method="GET">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="newGameModalLabel">New Game</h5>
@@ -63,13 +63,19 @@
         </div>
         <div class="modal-body">
             Do you want to start a new game?
+            <label for="language">Language:</label>
+            <select id="cars" name="language">
+                {% for key, val in languages.items() %}
+                    <option value="{{ key  }}">{{ val }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="newGameModalCancelButton">Cancel</button>
-            <a class="btn btn-primary" href="/">Start New Game</a>
+            <input type="submit" class="btn btn-primary" value="Start New Game">
         </div>
         </div>
-    </div>
+    </form>
     </div>
 
     <!-- Code Modal -->
